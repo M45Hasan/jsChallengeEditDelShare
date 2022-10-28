@@ -1,0 +1,115 @@
+.h1 {
+  font-size: 40px;
+  font-weight: bold;
+
+  color: brown;
+}
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: cyan;
+}
+.comment {
+  color: cyan;
+  font-weight: bold;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-align: center;
+  padding: 10px;
+  display: none;
+}
+body {
+  margin: 0;
+  padding: 0;
+
+  background: rgba(0, 0, 0, 0.653);
+  height: 600px;
+}
+.bodyclass {
+  background: rgba(0, 0, 0, 0.653);
+  width: 1263px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 609px;
+}
+
+.divBdy {
+  width: 605px;
+  height: 510px;
+  position: relative;
+
+  border-radius: 10px;
+  border-top-left-radius: 128px 121px;
+  background: rgba(59, 24, 10, 0.895);
+}
+.userPicName {
+  display: flex;
+  height: 231px;
+}
+.userPic {
+  width: 36%;
+}
+.userName {
+  width: 64%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mePic {
+  border-radius: 50%;
+}
+.footer {
+  width: 605px;
+  height: 30px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  column-gap: 10px;
+  background: linear-gradient(
+    to left,
+    #d16ba5,
+    #c777b9,
+    #ba83ca,
+    #aa8fd8,
+    #9a9ae1,
+    #8aa7ec,
+    #79b3f4,
+    #69bff8,
+    #52cffe,
+    #41dfff,
+    #46eefa,
+    #5ffbf1
+  );
+  bottom: 0;
+  position: absolute;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+button {
+  border-radius: 2px;
+}
+button:hover {
+  color: coral;
+  background: rgba(0, 0, 0, 0.751);
+}
+.nameInPut {
+  background: rgba(126, 49, 19, 0.443);
+  color: magenta;
+  width: 300px;
+  height: 50px;
+  text-align: center;
+  border: 0;
+  box-shadow: 5px;
+  border-radius: 5px;
+}
+.commentInPut {
+  width: 600px;
+  height: 239px;
+  background: rgba(126, 49, 19, 0.443);
+  text-align: center;
+  border: 0;
+  box-shadow: 5px;
+  border-radius: 5px;
+}
