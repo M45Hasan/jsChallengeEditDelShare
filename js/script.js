@@ -12,13 +12,14 @@ butShare.style.display = "none";
 commentInPut.style.display = "none";
 let arr = [];
 userComment();
-
+shr();
 function userComment() {
   nameInPut.addEventListener("keypress", (e) => {
     if (e.key == "Enter") {
       fname.innerHTML = nameInPut.value;
       nameInPut.style.display = "none";
       commentInPut.style.display = "block";
+
       commentInPut.addEventListener("keypress", (a) => {
         if (a.key == "Enter") {
           commentInPut.style.display = "none";
@@ -27,12 +28,9 @@ function userComment() {
           butDelete.style.display = "block";
           butEdit.style.display = "block";
           butShare.style.display = "block";
-          arr = [];
-          arr.push({ User: fname.innerHTML, Comment: comment.innerHTML });
-          console.log(arr);
+
           del();
           edt();
-          shr();
         }
       });
     }
@@ -41,16 +39,19 @@ function userComment() {
 
 function del() {
   butDelete.addEventListener("click", () => {
-    arr.map((item, index) => {
-      arr.splice(index, arr.length);
-      console.log(arr);
-    });
+    /*arr.map((item, index) => {
+      arr.splice(index, 1); //delete all arry item
+    });*/
+    console.log(arr);
     fname.innerHTML = "";
+    nameInPut.value = ""; // for faka
     comment.innerHTML = "";
+    commentInPut.value = "";
     nameInPut.style.display = "block";
     commentInPut.style.display = "none";
     butEdit.style.display = "none";
     butShare.style.display = "none";
+    butDelete.style.display = "none";
   });
 }
 
@@ -62,13 +63,32 @@ function edt() {
 }
 
 let shareList = document.querySelector(".shareList");
-let divBdy = document.querySelector(".divBdy");
-
+let divShareList = document.querySelector(".divShareList");
+shareList.innerHTML = "";
 function shr() {
   butShare.addEventListener("click", () => {
-    let clonePage = divBdy.cloneNode(true);
-    shareList.innerHTML = `<li> ${document.body.appendChild(clonePage)} </li>`;
     shareList.innerHTML = "";
-    clonePage = "";
+    arr.push({ User: nameInPut.value, Comment: commentInPut.value });
+    console.log(arr);
+
+    arr.map((item) => {
+      shareList.innerHTML += `<li><div class="inside">User: ${item.User} <hr class="hr1"/> "${item.Comment}" <button class="cancel"
+      >X</button><div/></li>`;
+    });
+    let cancel = document.querySelectorAll(".cancel");
+    let cancelArr = Array.from(cancel);
+    //let arrlist = Array.from(shareList);
+    //console.log(arrlist);
+    cancelArr.map((item, index) => {
+      item.addEventListener("click", () => {
+        arr.splice(index, 1);
+        item.parentNode.remove();
+        //item.style.display="none"
+
+        //console.log(arrlist[index]);
+        console.log(arr);
+        //shr();
+      });
+    });
   });
 }

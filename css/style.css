@@ -4,7 +4,8 @@
 
   color: brown;
 }
-h1 {
+h1,
+.lsitUser {
   font-size: 40px;
   font-weight: bold;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -19,25 +20,33 @@ h1 {
   padding: 10px;
   display: none;
 }
+.listComment {
+  color: cyan;
+  font-weight: bold;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-align: center;
+  padding: 10px;
+}
 body {
   margin: 0;
   padding: 0;
 
-  background: rgba(0, 0, 0, 0.653);
+  background: rgb(0, 0, 0, 1);
   height: 600px;
 }
 .bodyclass {
   background: rgba(0, 0, 0, 0.653);
-  width: 1263px;
+  width: 1180px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 609px;
+  height: 445px;
+  overflow-x: hidden;
 }
 
 .divBdy {
   width: 605px;
-  height: 510px;
+  height: 410px;
   position: relative;
 
   border-radius: 10px;
@@ -94,6 +103,7 @@ button:hover {
   color: coral;
   background: rgba(0, 0, 0, 0.751);
 }
+
 .nameInPut {
   background: rgba(126, 49, 19, 0.443);
   color: magenta;
@@ -106,10 +116,53 @@ button:hover {
 }
 .commentInPut {
   width: 600px;
-  height: 239px;
+  height: 139px;
   background: rgba(126, 49, 19, 0.443);
   text-align: center;
   border: 0;
   box-shadow: 5px;
   border-radius: 5px;
+  color: white;
 }
+li {
+  color: rgb(32, 215, 222);
+  
+
+  font-size: 20px;
+  text-align: center;
+}
+ul {
+  list-style-type: none;
+  width: 300px;
+  margin-left:20px;
+  display: flex;
+  column-gap: 8px;
+  
+
+}
+.cancel {
+  border-radius: 50%;
+  margin-left: 20px;
+  color: rgb(246, 72, 9);
+  background: rgba(0, 0, 0, 0.751);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.hr1 {
+  width: 100px;
+}
+
+.inside {
+  width: 200px;
+  height: 100px;
+  background: rgba(59, 24, 10, 0.895);
+  border-radius: 10px;
+  border: 2px solid coral;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-style: italic;
+  position: relative;
+ 
