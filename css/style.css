@@ -126,7 +126,6 @@ button:hover {
 }
 li {
   color: rgb(32, 215, 222);
-  
 
   font-size: 20px;
   text-align: center;
@@ -134,11 +133,9 @@ li {
 ul {
   list-style-type: none;
   width: 300px;
-  margin-left:20px;
+  margin-left: 20px;
   display: flex;
   column-gap: 8px;
-  
-
 }
 .cancel {
   border-radius: 50%;
@@ -165,4 +162,9 @@ ul {
   font-family: sans-serif;
   font-style: italic;
   position: relative;
- 
+  box-shadow: #5ffbf1;
+}
+.fa-user{
+  font-size: 25px;
+  padding-right: 15px;
+}

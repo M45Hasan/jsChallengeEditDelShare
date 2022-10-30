@@ -13,12 +13,26 @@ commentInPut.style.display = "none";
 let arr = [];
 userComment();
 shr();
+
 function userComment() {
   nameInPut.addEventListener("keypress", (e) => {
+    let ds = nameInPut.value.split(" ").join("");
+    let ms = ds / ds;
     if (e.key == "Enter") {
-      fname.innerHTML = nameInPut.value;
-      nameInPut.style.display = "none";
-      commentInPut.style.display = "block";
+      if (ds.length != 0 && ms != 1) {
+        if (nameInPut.value != 0 && ds.length != 1) {
+          fname.innerHTML = nameInPut.value;
+          nameInPut.style.display = "none";
+          commentInPut.style.display = "block";
+        } else {
+          // for value 0;
+          nameInPut.value = "";
+        }
+      } else {
+        // for length !=0 && ds/ds !=1;
+        //userComment();
+        nameInPut.value = "";
+      }
 
       commentInPut.addEventListener("keypress", (a) => {
         if (a.key == "Enter") {
@@ -70,18 +84,20 @@ function shr() {
     shareList.innerHTML = "";
     arr.push({ User: nameInPut.value, Comment: commentInPut.value });
     console.log(arr);
-
+    shareList.innerHTML = "";
     arr.map((item) => {
-      shareList.innerHTML += `<li><div class="inside">User: ${item.User} <hr class="hr1"/> "${item.Comment}" <button class="cancel"
+      shareList.innerHTML += `<li><div class="inside"><i class="fa-solid fa-user"></i>   ${item.User} <hr class="hr1"/> "${item.Comment}" <button class="cancel"
       >X</button><div/></li>`;
     });
     let cancel = document.querySelectorAll(".cancel");
     let cancelArr = Array.from(cancel);
     //let arrlist = Array.from(shareList);
     //console.log(arrlist);
+
     cancelArr.map((item, index) => {
       item.addEventListener("click", () => {
-        arr.splice(index, 1);
+        arr.splice(index, 2);
+        console.log(item, index);
         item.parentNode.remove();
         //item.style.display="none"
 
