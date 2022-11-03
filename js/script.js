@@ -19,7 +19,7 @@ function userComment() {
     let ds = nameInPut.value.split(" ").join("");
     let ms = ds / ds;
     if (e.key == "Enter") {
-      if (ds.length != 0 && ms != 1) {
+      if (15 > ds.length != 0 && ms != 1) {
         if (nameInPut.value != 0 && ds.length != 1) {
           fname.innerHTML = nameInPut.value;
           nameInPut.style.display = "none";
@@ -27,11 +27,13 @@ function userComment() {
         } else {
           // for value 0;
           nameInPut.value = "";
+          alert("Name:no Nmber,<16charater");
         }
       } else {
         // for length !=0 && ds/ds !=1;
         //userComment();
         nameInPut.value = "";
+        alert("Name:no Nmber,<16charater");
       }
 
       commentInPut.addEventListener("keypress", (a) => {
@@ -42,7 +44,7 @@ function userComment() {
           butDelete.style.display = "block";
           butEdit.style.display = "block";
           butShare.style.display = "block";
-
+          // shr(); //loop chole ase
           del();
           edt();
         }
@@ -56,6 +58,7 @@ function del() {
     /*arr.map((item, index) => {
       arr.splice(index, 1); //delete all arry item
     });*/
+
     console.log(arr);
     fname.innerHTML = "";
     nameInPut.value = ""; // for faka
@@ -73,15 +76,18 @@ function edt() {
   butEdit.addEventListener("click", () => {
     comment.innerHTML = "";
     commentInPut.style.display = "block";
+    butShare.style.display = "none";
   });
 }
 
 let shareList = document.querySelector(".shareList");
 let divShareList = document.querySelector(".divShareList");
 shareList.innerHTML = "";
+
 function shr() {
   butShare.addEventListener("click", () => {
     shareList.innerHTML = "";
+
     arr.push({ User: nameInPut.value, Comment: commentInPut.value });
     console.log(arr);
     shareList.innerHTML = "";
@@ -94,16 +100,29 @@ function shr() {
     //let arrlist = Array.from(shareList);
     //console.log(arrlist);
 
-    cancelArr.map((item, index) => {
-      item.addEventListener("click", () => {
-        arr.splice(index, 2);
-        console.log(item, index);
-        item.parentNode.remove();
-        //item.style.display="none"
+    cancelArr.map((itm, index) => {
+      console.log(index);
+      let count = index;
+      itm.addEventListener("click", () => {
+        console.log(itm, index);
 
+        if (index > arr.length) {
+          // problem
+          arr.splice(arr.length - 1, 1);
+          itm.parentNode.remove();
+        } else {
+          if (arr.length == 1) {
+            arr.splice(0, 1);
+            itm.parentNode.remove();
+          } else {
+            arr.splice(index, 1);
+            itm.parentNode.remove();
+          }
+        }
+
+        //item.style.display="none"
         //console.log(arrlist[index]);
         console.log(arr);
-        //shr();
       });
     });
   });
