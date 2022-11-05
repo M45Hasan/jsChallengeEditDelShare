@@ -105,9 +105,12 @@ function shr() {
       let count = index;
       itm.addEventListener("click", () => {
         console.log(itm, index);
-
+        // problem : sir ei-khane shr() call korle array and display theke delete hoy-na recursion ta kaj kore na
+        //e-jonno if-else r parentNode use kolam , but ei-khane r-ek problem:
+        //jodi comment gula serial vabe(1to5 )or (5 to 1) delete korle sob ok when new comments are submitted
+        //jodi middle theke ba randomly sob delete korar por ,
+        //abr new comment submit kori ,tahole previous ek ta comment new comment er sathe display kore
         if (index > arr.length) {
-          // problem
           arr.splice(arr.length - 1, 1);
           itm.parentNode.remove();
         } else {
